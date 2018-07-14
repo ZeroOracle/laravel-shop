@@ -55,7 +55,14 @@ class User extends Authenticatable
 
     public function addresses()
     {
-//      关联模型一对多
+        //      关联模型一对多
         return $this->hasMany(UserAddress::class);
+    }
+
+    public function favoriteProducts()
+    {
+        return $this->belongsToMany(Product::class, 'user_favorite_products')
+            ->withTimestamps()
+            ->orderBy('user_favorite_products.created_at', 'desc');
     }
 }
