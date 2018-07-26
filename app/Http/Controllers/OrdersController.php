@@ -81,4 +81,17 @@ class OrdersController extends Controller
 
         return view('orders.index', ['orders' => $orders]);
     }
+
+
+
+    public function show(Order $order,Request $request)
+    {
+        //只允许订单的创建者可以看到对应的订单信息校验权限
+        $this->authorize('own', $order);
+        //延迟预加载，不同点在于 load() 是在已经查询出来的模型上调用,而 with() 则是在 ORM 查询构造器上调用。
+        return view('orders.show',['order' => $order->load(['items.productSku', 'items.product'])]);
+    }
+
+
+   
 }
