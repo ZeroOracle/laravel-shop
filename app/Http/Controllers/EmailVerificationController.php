@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Exception;
-use App\Models\User;
-use Cache;
-use Illuminate\Http\Request;
-use App\Notifications\EmailVerificationNotification;
-use Mail;
 use App\Exceptions\InvalidRequestException;
+use App\Models\User;
+use App\Notifications\EmailVerificationNotification;
+use Cache;
+use Exception;
+use Illuminate\Http\Request;
 
 
 class EmailVerificationController extends Controller
