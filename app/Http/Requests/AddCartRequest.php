@@ -11,7 +11,7 @@ class AddCartRequest extends Request
         return [
             'sku_id' => [
                 'required',
-                function ($attribute, $value, $fail) {
+                function ($value, $fail) {
                     if (!$sku = ProductSku::find($value)) {
                         $fail('该商品不存在');
                         return;
