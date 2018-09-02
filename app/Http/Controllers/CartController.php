@@ -32,7 +32,7 @@ class CartController extends Controller
         return [];
     }
 
-    public function remove(ProductSku $sku)
+    public function remove(ProductSku $sku, Request $request)
     {
         $this->cartService->remove($sku->id);
 
